@@ -1,14 +1,12 @@
 package jo.sagerdrones.task1;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.ObjectInputStream.GetField;
 
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.DocumentBuilder;
 import org.xml.sax.SAXException;
-import javax.xml.bind.*;
 
 import jo.sagerdrones.kml.KmlUtil;
 import jo.sagerdrones.kml.Placemark;
@@ -20,11 +18,12 @@ import org.w3c.dom.Node;
 public class Task1 {
 
 	public static void main(String[] args) {
+			
 		try {
-			File kmlSample= new File("example.kml");
+			File kmlSample= new File("src\\example.kml");
 			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-			Document doc=dBuilder.parse(kmlSample);
+			DocumentBuilder dBuilder= dbFactory.newDocumentBuilder();
+			Document doc= dBuilder.parse(kmlSample);
 			doc.getDocumentElement().normalize();
 			if(!doc.getDocumentElement().getNodeName().equals("kml")){
 				System.out.println("File is not Keyhole Markup Language file.");
@@ -42,10 +41,16 @@ public class Task1 {
 				placemark.printInfo();
 
 			}
-		}catch (Exception e) {
-			e.printStackTrace();
+		} catch (ParserConfigurationException e1) {
+			e1.printStackTrace();
+		}catch (SAXException e2) {
+			e2.printStackTrace();
+		} catch (IOException e3) {
+			e3.printStackTrace();
 		}
-		
+			
+
+
 	}
 
 //	private static void parsePlaceMarkChildNode(Node node) {
