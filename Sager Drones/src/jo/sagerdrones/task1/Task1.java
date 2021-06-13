@@ -20,7 +20,7 @@ public class Task1 {
 	public static void main(String[] args) {
 			
 		try {
-			File kmlSample= new File("example.kml");
+			File kmlSample= new File(args[0]);
 			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder dBuilder= dbFactory.newDocumentBuilder();
 			Document doc= dBuilder.parse(kmlSample);

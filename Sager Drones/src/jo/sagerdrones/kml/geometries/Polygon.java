@@ -61,7 +61,7 @@ public class Polygon extends Geometry {
 				double zi=coordinate1.altitude;
 				double xN=coordinate2.longitude;
 				double yN= coordinate2.latitude;
-				double zN=coordinate1.altitude;
+				double zN=coordinate2.altitude;
 				longtitude+=(xi+xN)*(xi*yN-xN*yi);
 				latitude+=(yi+yN)*(xi*yN-xN*yi);
 				if(zi==zN) {
